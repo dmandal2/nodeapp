@@ -11,8 +11,8 @@ pipeline {
     stage('Build and Publish Image') {
       steps {
         script {
-          def imageName = "my-node-app:${env.BUILD_NUMBER}"
-          def ecrRepoURL = "235319409305.dkr.ecr.us-east-1.amazonaws.com/app-ecr"
+          def imageName = "my-node-app"
+          def ecrRepoURL = "YOUR_ECR_REPOSITORY_URL"
 
           sh "docker build -t $imageName ."
           sh "docker tag $imageName $ecrRepoURL:$imageName"
